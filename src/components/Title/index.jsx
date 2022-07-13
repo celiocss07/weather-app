@@ -1,9 +1,9 @@
 import React from 'react'
 import { Text } from './styles'
 
-export default function Title({children}) {
+export default function Title({children, ...rest}) {
   return (
-    <Text>
+    <Text {...rest}>
         {children}
     </Text>
   )
