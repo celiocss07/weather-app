@@ -4,8 +4,14 @@ export const Container = styled.header`
   width: 100%;
   padding: 8px;
   display: flex;
-  align-items: streetch;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
+  gap: 4px;
+  @media(min-width: 640px){
+    flex-direction: row;
+    align-items: streetch;
+  }
 `;
 
 export const DateBox = styled.div`
@@ -30,6 +36,7 @@ export const SearchBox = styled.div`
   padding: 8px;
   display: flex;
   justify-content: space-around;
+  align-items: streetch;
   background-color: white;
   gap: 4px;
 `;

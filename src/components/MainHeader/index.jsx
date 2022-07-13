@@ -1,4 +1,5 @@
 import React from "react";
+import SearchInput from "../SearchInput";
 import { Container, DateBox, LongDateText, SearchBox, ShortDateText } from "./style";
 
 export default function MainHeader() {
@@ -9,7 +10,7 @@ export default function MainHeader() {
         <LongDateText>Thursday, jan 4, 2022</LongDateText>
       </DateBox>
       <SearchBox>
-        
+        <SearchInput placeholder='Search location here' />
       </SearchBox>
     </Container>
   );
