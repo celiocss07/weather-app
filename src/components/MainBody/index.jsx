@@ -5,7 +5,7 @@ import { Container } from './styles'
 export default function MainBody() {
   return (
     <Container>
-        <Title></Title>
+        <Title>Today overview</Title>
     </Container>
   )
 }
