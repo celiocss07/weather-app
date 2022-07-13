@@ -4,7 +4,7 @@ export const Container = styled.header`
   width: 100%;
   padding: 8px;
   display: flex;
-  align-items: center;
+  align-items: streetch;
   justify-content: space-between;
 `;
 
@@ -24,4 +24,12 @@ export const LongDateText = styled.h2`
   color: #ADACB1;
   font-size: 12px;
   font-weight: normal;
+`;
+
+export const SearchBox = styled.div`
+  padding: 8px;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  gap: 4px;
 `;

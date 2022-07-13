@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, DateBox, LongDateText, ShortDateText } from "./style";
+import { Container, DateBox, LongDateText, SearchBox, ShortDateText } from "./style";
 
 export default function MainHeader() {
   return (
@@ -8,6 +8,9 @@ export default function MainHeader() {
         <ShortDateText>January 2020</ShortDateText>
         <LongDateText>Thursday, jan 4, 2022</LongDateText>
       </DateBox>
+      <SearchBox>
+        
+      </SearchBox>
     </Container>
   );
 }
