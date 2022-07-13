@@ -13,10 +13,10 @@ export const Input = styled.input.attrs({
     type: 'search'
 })`
     padding: 1px 2px 1px 10px;
-    color: #ADACB1;
+    color: gray;
     border: none;
     background: transparent;
-    font-size: 16px;
+    min-width: 160px;
    
     
 `;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.header`
   width: 100%;
@@ -6,17 +6,18 @@ export const Container = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  padding: 24px 0px;
   gap: 4px;
-  @media(min-width: 640px){
+  border-bottom: 2px solid #F2F2F2;
+  background-color: white;
+  
+  @media (min-width: 640px) {
     flex-direction: row;
-    
     align-items: streetch;
-    
   }
 `;
 
 export const DateBox = styled.div`
-  
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -29,13 +30,12 @@ export const ShortDateText = styled.h2`
   font-size: 16px;
 `;
 export const LongDateText = styled.h2`
-  color: #ADACB1;
+  color: #adacb1;
   font-size: 12px;
   font-weight: normal;
 `;
 
 export const SearchBox = styled.div`
-  
   display: flex;
   justify-content: space-around;
   align-items: streetch;
