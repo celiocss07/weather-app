@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   width: 100%;
-  padding: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,17 +9,20 @@ export const Container = styled.header`
   gap: 4px;
   @media(min-width: 640px){
     flex-direction: row;
+    
     align-items: streetch;
+    
   }
 `;
 
 export const DateBox = styled.div`
-  padding: 8px;
+  
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   background-color: white;
   gap: 4px;
+  margin: 8px;
 `;
 
 export const ShortDateText = styled.h2`
@@ -33,10 +35,11 @@ export const LongDateText = styled.h2`
 `;
 
 export const SearchBox = styled.div`
-  padding: 8px;
+  
   display: flex;
   justify-content: space-around;
   align-items: streetch;
   background-color: white;
   gap: 4px;
+  margin: 8px;
 `;
