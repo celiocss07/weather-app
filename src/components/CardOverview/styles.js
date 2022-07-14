@@ -36,12 +36,6 @@ export const Box = styled.div`
   
 `;
 
-export const Title = styled.h3`
-  color: #adacb1;
-  font-size: 12px;
-  font-weight: normal;
-`;
-
 export const TextValue = styled.h3`
     font-size: 16px;
 `;

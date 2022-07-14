@@ -4,13 +4,14 @@ import SearchInput from "../SearchInput";
 import { LocationMarkerIcon} from '@heroicons/react/outline'
 import { BsBookmarkStar } from "react-icons/bs"
 import { Container, DateBox, LongDateText, SearchBox, ShortDateText } from "./style";
+import { StrongText, Text } from "../Text";
 
 export default function MainHeader() {
   return (
     <Container>
       <DateBox>
-        <ShortDateText>January 2020</ShortDateText>
-        <LongDateText>Thursday, jan 4, 2022</LongDateText>
+        <StrongText>January 2020</StrongText>
+        <Text>Thursday, jan 4, 2022</Text>
       </DateBox>
       <SearchBox>
         <SearchInput placeholder='Search location here' />

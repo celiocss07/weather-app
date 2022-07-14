@@ -1,7 +1,8 @@
 import React from 'react'
 import CardOverview from '../CardOverview'
 import LocationCard from '../LocationCard'
-import Title from '../Title'
+import { Title } from '../Text'
+
 import { Container, Row } from './styles'
 
 export default function MainBody() {
