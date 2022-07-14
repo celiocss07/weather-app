@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button";
 import SearchInput from "../SearchInput";
-import { LocationMarkerIcon, SaveIcon } from '@heroicons/react/outline'
+import { LocationMarkerIcon} from '@heroicons/react/outline'
 import { BsBookmarkStar } from "react-icons/bs"
 import { Container, DateBox, LongDateText, SearchBox, ShortDateText } from "./style";
 

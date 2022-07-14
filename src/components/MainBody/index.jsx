@@ -1,7 +1,6 @@
 import React from 'react'
 import CardOverview from '../CardOverview'
 import LocationCard from '../LocationCard'
-import { Background } from '../Main/styles'
 import Title from '../Title'
 import { Container, Row } from './styles'
 
