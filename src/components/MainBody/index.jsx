@@ -1,11 +1,19 @@
 import React from 'react'
+import CardOverview from '../CardOverview'
 import Title from '../Title'
-import { Container } from './styles'
+import { Container, Row } from './styles'
 
 export default function MainBody() {
   return (
     <Container>
         <Title>Today overview</Title>
+        <Row>
+            <CardOverview />
+            <CardOverview />
+            <CardOverview />
+            <CardOverview />
+        </Row>
+        <Title>Favorite locations</Title>
     </Container>
   )
 }
