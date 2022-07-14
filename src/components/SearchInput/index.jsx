@@ -4,7 +4,7 @@ import {SearchIcon} from '@heroicons/react/outline'
 export default function SearchInput({placeholder, ...rest}) {
   return (
     <Container>
-        <SearchIcon color='#ADACB1' width={18} />
+        <SearchIcon color='#FFF' width={18} />
         <Input placeholder={placeholder} {...rest} />
     </Container>
   )

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.article`
   width: 100%;
   padding: 24px 0px;
-  background-color: #f2f2f2;
+  background-color: rgba(255,255,255,0.5);
   display: flex;
   gap: 16px;
   align-items: center;
@@ -38,7 +38,7 @@ export const Box = styled.div`
 `;
 
 export const Title = styled.h3`
-  color: #adacb1;
+  color: white;
   font-size: 12px;
   font-weight: normal;
 `;

@@ -1,12 +1,15 @@
 import React from 'react'
 import CardOverview from '../CardOverview'
 import LocationCard from '../LocationCard'
+import { Background } from '../Main/styles'
 import Title from '../Title'
 import { Container, Row } from './styles'
 
 export default function MainBody() {
   return (
-    <Container>
+    <Container photo="rain">
+      
+      
         <Title>Today overview</Title>
         <Row>
             <CardOverview />
@@ -17,12 +20,12 @@ export default function MainBody() {
         <Title>Favorite locations</Title>
         <Row>
             <LocationCard value='Luanda' />
-            <LocationCard value='London' />
-            <LocationCard value='New York' />
-            <LocationCard value='Santa Catarina' />
-            <LocationCard value='Cape Town' />
-            <LocationCard value='Cabinda' />
-            <LocationCard value='Libreville' />
+            <LocationCard value='Luanda' />
+            <LocationCard value='Luanda' />
+            <LocationCard value='Luanda' />
+            <LocationCard value='Luanda' />
+            <LocationCard value='Luanda' />
+            
         </Row>
     </Container>
   )

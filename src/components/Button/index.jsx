@@ -1,11 +1,12 @@
-import React from 'react'
-import { Container } from './styles'
+import React from "react";
+import { Container } from "./styles";
 
-
-export default function Button({Icon, ...rest}) {
+export default function Button({ Icon, legend, ...rest }) {
   return (
     <Container {...rest}>
-        <Icon width={18} color='#ADACB1' />
+      <abbr title={legend ? legend : 'button'}>
+        <Icon width={18} color="#FFF" />
+      </abbr>
     </Container>
-  )
+  );
 }
