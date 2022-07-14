@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-background-color: rgba(255,255,255,0.5);
+  background-color: #F2F2F2;
   padding: 8px;
   display: flex;
   align-items: center;
@@ -13,30 +13,10 @@ export const Input = styled.input.attrs({
     type: 'search'
 })`
     padding: 1px 2px 1px 10px;
-    color: #FFF;
+    color: gray;
     border: none;
     background: transparent;
     min-width: 160px;
-
-    ::-webkit-input-placeholder {
-      color: #FFF;
-      
-   }
-   
-   :-moz-placeholder {
-    color: #FFF;
-      
-   }
-   
-   ::-moz-placeholder {
-    color: #FFF; 
-      
-   }
-   
-   :-ms-input-placeholder {  
-    color: #FFF; 
-      
-   }
    
     
 `;

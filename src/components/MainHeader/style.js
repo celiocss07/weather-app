@@ -28,7 +28,7 @@ export const DateBox = styled.div`
 
 export const ShortDateText = styled.h2`
   font-size: 16px;
-  color: white;
+ 
 `;
 export const LongDateText = styled.h2`
   color: #adacb1;

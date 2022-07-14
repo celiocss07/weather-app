@@ -7,7 +7,7 @@ import { Container, Row } from './styles'
 
 export default function MainBody() {
   return (
-    <Container photo="rain">
+    <Container >
       
       
         <Title>Today overview</Title>

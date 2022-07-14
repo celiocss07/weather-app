@@ -1,15 +1,13 @@
-import React from "react";
-import MainBody from "../MainBody";
-import MainHeader from "../MainHeader";
-import { Container, Container2 } from "./styles";
+import React from 'react'
+import MainBody from '../MainBody'
+import MainHeader from '../MainHeader'
+import { Container } from './styles'
 
 export default function Main() {
   return (
-    <Container photo="rain">
-      <Container2>
+    <Container>
         <MainHeader />
         <MainBody />
-      </Container2>
     </Container>
-  );
+  )
 }

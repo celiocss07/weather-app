@@ -8,5 +8,5 @@ export const Container = styled.button`
     cursor: pointer;
     border: none;
     border-radius: 4px;
-    background-color: rgba(255,255,255,0.5);
+    
 `;
