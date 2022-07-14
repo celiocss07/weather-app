@@ -8,7 +8,7 @@ export const Container = styled.header`
   justify-content: space-between;
   padding: 24px 0px;
   gap: 4px;
-  border-bottom: 2px solid #F2F2F2;
+  border-bottom: 2px solid  rgba(255,255,255,0.1);
  
 
   @media (min-width: 820px) {

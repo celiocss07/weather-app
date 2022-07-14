@@ -8,7 +8,7 @@ export const TitleValue = styled.h2`
   font-weight: normal;
   font-size: 14px;
   line-height: 18px;
-
+color: #FFF;
 
   @media(min-width: 640px){
     font-size: 16px;
@@ -25,5 +25,5 @@ export const TextValue = styled.h3`
 
 export const StrongTextValue = styled.h2`
   font-size: 16px;
- 
+  color: #FFF;
 `;

@@ -12,7 +12,6 @@ export default function AsideHeader() {
         <StrongText>Sequele</StrongText>
         <Text>Luanda, Angola</Text>
       </Box>
-
       <StrongText>8:00 AM</StrongText>
     </Container>
   );

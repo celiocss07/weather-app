@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Box, Container as Card } from '../AsideHeader/style'
+import CardOverview from "../CardOverview";
 
 export const Container = styled.aside`
     width: 100%;
@@ -16,4 +18,19 @@ export const Container = styled.aside`
         width: 35%;
     }
 
+`;
+
+export const CardView = styled(Card)`
+flex-direction: column;
+align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    @media(min-width: 920px){
+        flex-direction: row;
+    }
+`;
+
+export const CardDetails = styled(CardOverview)`
+color: #FFF;
+background-color: rgba(255,255,255,0.3);
 `;

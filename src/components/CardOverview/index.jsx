@@ -2,9 +2,9 @@ import React from 'react'
 import { Text } from '../Text'
 import { Container, Icon,Box, TextValue} from './styles'
 
-export default function CardOverview() {
+export default function CardOverview({...rest}) {
   return (
-    <Container>
+    <Container {...rest}>
         <Icon src={require('./../../assets/icons/signposts.png')}  />
         <Box>
             <Text>wind speed</Text>

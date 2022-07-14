@@ -5,8 +5,9 @@ export const Container = styled.button`
   justify-content: center;
   align-items: center;
   padding: 8px 16px;
-  background-color: #f2f2f2;
+  background-color: rgba(255,255,255,0.1);
   cursor: pointer;
   border: none;
   border-radius: 4px;
+  color: #FFF;
 `;
