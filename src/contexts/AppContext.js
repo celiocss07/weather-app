@@ -1,18 +1,25 @@
 import { createContext, useEffect, useState } from "react";
-import { convertTime, handleGetLocations, handleSaveLocation, handleSearch, handleSearchCoords } from "../services";
-
+import {
+  convertTime,
+  handleGetLocations,
+  handleRemoveLocation,
+  handleSaveLocation,
+  handleSearch,
+  handleSearchCoords,
+} from "../services";
+import { toast } from "react-toastify";
 export const AppContext = createContext({});
 
 export default function AppProvider({ children }) {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [favoritiesLocations, setFavoritiesLocations] = useState([]);
   const [coords, setCoords] = useState({});
 
   const [inputValue, setInputValue] = useState("");
 
   function handleSetData(res) {
-    
     setData({
       temp: Math.floor(res?.main?.temp - 273) + "˚C",
       temp_min: Math.floor(res?.main?.temp_min - 273) + "˚C",
@@ -31,33 +38,43 @@ export default function AppProvider({ children }) {
   }
 
   function handleData() {
-    setLoading(true);
-    handleSearch(inputValue).then((res) => handleSetData(res));
-    
+   
+    handleSearch(inputValue).then((res) => {
+      if (res?.main) {
+        handleSetData(res);
+      } else {
+
+        toast.error("Cidade não encontrada!");
+      }
+    });
   }
-  function handleSearchMyLocation(){
+  function handleSearchMyLocation() {
     setLoading(true);
     handleSearchCoords({
       lat: coords.lat,
       lng: coords.lng,
     }).then((res) => handleSetData(res));
   }
+  function removeLocation(location) {
+    setLoading(false);
+    setFavoritiesLocations(handleRemoveLocation(location));
+    toast.success('Removido!')
+  }
 
-  function saveLocation(){
+  function saveLocation() {
+    setLoading(false);
     handleSaveLocation(inputValue);
-    setFavoritiesLocations(handleGetLocations())
+    setFavoritiesLocations(handleGetLocations());
+    toast.success('Adicionado aos favoritos!')
   }
-  function handleSearchFavorityLocation(city){
+  function handleSearchFavorityLocation(city) {
     setLoading(true);
-    setInputValue(city)
+    setInputValue(city);
     handleSearch(city).then((res) => handleSetData(res));
-
   }
-
 
   useEffect(() => {
-
-    setFavoritiesLocations(handleGetLocations())
+    setFavoritiesLocations(handleGetLocations());
     navigator.geolocation.getCurrentPosition(
       (res) => {
         handleSearchCoords({
@@ -70,7 +87,9 @@ export default function AppProvider({ children }) {
           lng: res.coords.longitude,
         });
       },
-      (error) => {}
+      (error) => {
+        handleSearch("Luanda").then((res) => handleSetData(res));
+      }
     );
   }, []);
 
@@ -82,11 +101,14 @@ export default function AppProvider({ children }) {
         data,
         loading,
         setData,
+        error,
+        setError,
         favoritiesLocations,
         handleData,
         handleSearchMyLocation,
         handleSearchFavorityLocation,
-        saveLocation
+        saveLocation,
+        removeLocation,
       }}
     >
       {children}

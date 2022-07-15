@@ -28,11 +28,23 @@ export async function handleSearchCoords(coords) {
     }
   }
 
+  export function handleRemoveLocation(city){
+    var data = JSON.parse(localStorage.getItem('favoriteLocations'));
+    data = data.filter(e => e !== city)
+    localStorage.removeItem('favoriteLocations');
+    localStorage.setItem('favoriteLocations',JSON.stringify(data));
+
+    return data;
+  }
+
   export  function handleSaveLocation(city){
 
     var data = JSON.parse(localStorage.getItem('favoriteLocations'));
+    
+    if(data?.length > 0 ){
 
-    if(data?.length > 0){
+      if(data.find( e => e === city))
+      return
         data.push(city)
     localStorage.removeItem('favoriteLocations');
     localStorage.setItem('favoriteLocations',JSON.stringify(data));
@@ -45,6 +57,9 @@ export async function handleSearchCoords(coords) {
   }
   export  function handleGetLocations(){
     var data = JSON.parse(localStorage.getItem('favoriteLocations'));
+    if(!(data?.length > 0) )
+    return [];
+    
     return data;
   }
 
