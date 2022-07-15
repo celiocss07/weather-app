@@ -1,37 +1,59 @@
 import { createContext, useEffect, useState } from "react";
-import { convertTime, handleSearch } from "../services";
+import { convertTime, handleSearch, handleSearchCoords } from "../services";
 
 export const AppContext = createContext({});
 
 export default function AppProvider({ children }) {
   const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [coords, setCoords] = useState({});
 
-  const [inputValue, setInputValue] = useState("luanda");
+  const [inputValue, setInputValue] = useState("");
+
+  function handleSetData(res) {
+    
+    setData({
+      temp: Math.floor(res?.main?.temp - 273) + "˚C",
+      temp_min: Math.floor(res?.main?.temp_min - 273) + "˚C",
+      temp_max: Math.floor(res?.main?.temp_max - 273) + "˚C",
+      humidity: res?.main?.humidity + "%",
+      clouds: res?.clouds?.all + "%",
+      wind: res?.wind,
+      weather: res?.weather[0],
+      sunrise: convertTime(res?.sys?.sunrise, 4),
+      sunset: convertTime(res?.sys?.sunset, 4),
+      displayName: res?.name + ", " + res?.sys?.country,
+      city: res?.name,
+      dt: res?.dt,
+    });
+    setLoading(false);
+  }
 
   function handleData() {
-    handleSearch(inputValue).then((res) => setData({
-        temp: Math.floor(res?.main?.temp - 273)+'˚C',
-        temp_min: Math.floor(res?.main?.temp_min - 273)+'˚C',
-        temp_max: Math.floor(res?.main?.temp_max - 273)+'˚C',
-        humidity: res?.main?.humidity+'%',
-        clouds: res?.clouds?.all+'%',
-        wind: res?.wind,
-        weather: res?.weather[0],
-        sunrise: convertTime(res?.sys?.sunrise, 4),
-        sunset: convertTime(res?.sys?.sunset, 4),
-        displayName: res?.name+', '+res?.sys?.country,
-        city: res?.name,
-        dt: res?.dt
-
-    }));
+    setLoading(true);
+    handleSearch(inputValue).then((res) => handleSetData(res));
     
+  }
+  function handleSearchMyLocation(){
+    setLoading(true);
+    handleSearchCoords({
+      lat: coords.lat,
+      lng: coords.lng,
+    }).then((res) => handleSetData(res));
   }
 
   useEffect(() => {
-    handleData();
     navigator.geolocation.getCurrentPosition(
       (res) => {
-        console.log(res);
+        handleSearchCoords({
+          lat: res.coords.latitude,
+          lng: res.coords.longitude,
+        }).then((res) => handleSetData(res));
+
+        setCoords({
+          lat: res.coords.latitude,
+          lng: res.coords.longitude,
+        });
       },
       (error) => {}
     );
@@ -45,6 +67,7 @@ export default function AppProvider({ children }) {
         data,
         setData,
         handleData,
+        handleSearchMyLocation
       }}
     >
       {children}

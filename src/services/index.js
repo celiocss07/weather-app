@@ -14,6 +14,19 @@ export async function handleSearch(city) {
     console.warn(error.message);
   }
 }
+export async function handleSearchCoords(coords) {
+    try {
+      console.log(coords);
+      const res = await api.get(`weather?appid=${key}&lat=${coords.lat}&lon=${coords.lng}`).then((res) => {
+        console.log("GOOD +> ", res.data);
+        return res.data;
+      });
+  
+      return res;
+    } catch (error) {
+      console.warn(error.message);
+    }
+  }
 
 export function convertTime(timeStamp, type) {
 

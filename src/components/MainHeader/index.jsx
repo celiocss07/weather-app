@@ -10,16 +10,17 @@ import { convertTime } from "../../services";
 
 export default function MainHeader() {
 
-  const {data} = useContext(AppContext);
+  const {data, handleSearchMyLocation} = useContext(AppContext);
   return (
     <Container>
       <DateBox>
+        
         <StrongText>{convertTime(data?.dt, 2)}</StrongText>
         <Text>{convertTime(data?.dt, 3)}</Text>
       </DateBox>
       <SearchBox>
         <SearchInput placeholder='Search location here' />
-        <Button Icon={LocationMarkerIcon} legend='Current location' />
+        <Button Icon={LocationMarkerIcon} legend='Current location' onClick={handleSearchMyLocation} />
         <Button Icon={BsBookmarkStar} legend='Save as favorite' />
         
       </SearchBox>
