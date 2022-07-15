@@ -48,6 +48,7 @@ export default function AppProvider({ children }) {
     setFavoritiesLocations(handleGetLocations())
   }
   function handleSearchFavorityLocation(city){
+    setLoading(true);
     setInputValue(city)
     handleSearch(city).then((res) => handleSetData(res));
 
@@ -79,6 +80,7 @@ export default function AppProvider({ children }) {
         inputValue,
         setInputValue,
         data,
+        loading,
         setData,
         favoritiesLocations,
         handleData,
