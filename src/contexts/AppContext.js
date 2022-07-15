@@ -24,7 +24,7 @@ export default function AppProvider({ children }) {
         dt: res?.dt
 
     }));
-    console.log(data);
+    
   }
 
   useEffect(() => {
