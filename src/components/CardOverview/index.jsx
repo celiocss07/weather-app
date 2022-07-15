@@ -1,14 +1,17 @@
 import React from 'react'
 import { Text } from '../Text'
-import { Container, Icon,Box, TextValue} from './styles'
+import { Container, Box, TextValue, Icon} from './styles'
 
-export default function CardOverview({...rest}) {
+export default function CardOverview({title,img , value, ...rest}) {
   return (
     <Container {...rest}>
-        <Icon src={require('./../../assets/icons/signposts.png')}  />
+      <div style={{display: 'flex', justifyContent: 'center', alignItems:'center', backgroundColor:'#FFF', padding:'16px 0px', borderTopLeftRadius:4, borderBottomLeftRadius:4}}>
+      <Icon src={img} />
+      </div>
+         
         <Box>
-            <Text>wind speed</Text>
-            <TextValue>250 km/h</TextValue>
+            <Text>{title}</Text>
+            <TextValue>{value}</TextValue>
         </Box>
     </Container>
   )

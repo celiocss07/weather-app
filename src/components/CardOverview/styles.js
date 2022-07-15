@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.article`
   width: 100%;
-  padding: 24px 0px;
+  padding: 0px;
   background-color: rgba(255,255,255,0.1);
   display: flex;
   gap: 16px;
@@ -27,9 +27,9 @@ export const Container = styled.article`
 export const Icon = styled.img.attrs({
   alt: "weather event",
 })`
-  width: 24px;
-  height: 24px;
-  margin-left: 16px;
+  width: 40px;
+  height: 40px;
+  margin: 0px 8px;
 `;
 
 export const Box = styled.div`

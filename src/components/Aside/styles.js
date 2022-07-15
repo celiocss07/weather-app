@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Box, Container as Card } from '../AsideHeader/style'
+import {  Container as Card } from '../AsideHeader/style'
 import CardOverview from "../CardOverview";
 
 export const Container = styled.aside`
