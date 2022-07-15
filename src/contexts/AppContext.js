@@ -38,12 +38,13 @@ export default function AppProvider({ children }) {
   }
 
   function handleData() {
-   
+   setLoading(true);
     handleSearch(inputValue).then((res) => {
       if (res?.main) {
         handleSetData(res);
+        setLoading(false);
       } else {
-
+        setLoading(false);
         toast.error("Cidade não encontrada!");
       }
     });
