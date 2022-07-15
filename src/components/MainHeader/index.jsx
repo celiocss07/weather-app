@@ -6,11 +6,11 @@ import { BsBookmarkStar } from "react-icons/bs"
 import { Container, DateBox, SearchBox } from "./style";
 import { StrongText, Text } from "../Text";
 import { AppContext } from "../../contexts/AppContext";
-import { convertTime } from "../../services";
+import { convertTime, handleSaveLocation } from "../../services";
 
 export default function MainHeader() {
 
-  const {data, handleSearchMyLocation} = useContext(AppContext);
+  const {data, handleSearchMyLocation, inputValue, saveLocation} = useContext(AppContext);
   return (
     <Container>
       <DateBox>
@@ -21,7 +21,7 @@ export default function MainHeader() {
       <SearchBox>
         <SearchInput placeholder='Search location here' />
         <Button Icon={LocationMarkerIcon} legend='Current location' onClick={handleSearchMyLocation} />
-        <Button Icon={BsBookmarkStar} legend='Save as favorite' />
+        <Button Icon={BsBookmarkStar} legend='Save as favorite' onClick={saveLocation} />
         
       </SearchBox>
     </Container>

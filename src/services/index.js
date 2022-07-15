@@ -28,6 +28,26 @@ export async function handleSearchCoords(coords) {
     }
   }
 
+  export  function handleSaveLocation(city){
+
+    var data = JSON.parse(localStorage.getItem('favoriteLocations'));
+
+    if(data?.length > 0){
+        data.push(city)
+    localStorage.removeItem('favoriteLocations');
+    localStorage.setItem('favoriteLocations',JSON.stringify(data));
+    }else{
+        data = [city];
+    localStorage.removeItem('favoriteLocations');
+    localStorage.setItem('favoriteLocations',JSON.stringify(data));
+    }
+    
+  }
+  export  function handleGetLocations(){
+    var data = JSON.parse(localStorage.getItem('favoriteLocations'));
+    return data;
+  }
+
 export function convertTime(timeStamp, type) {
 
   if (type === 1) {

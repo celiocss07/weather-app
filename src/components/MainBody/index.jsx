@@ -13,7 +13,7 @@ import { Container, Row } from './styles'
 
 export default function MainBody() {
 
-  const {data} = useContext(AppContext);
+  const {data, favoritiesLocations, handleSearchFavorityLocation} = useContext(AppContext);
   useEffect(() =>{
     console.log(data?.wind)
   },[data])
@@ -33,12 +33,11 @@ export default function MainBody() {
         </Row>
         <Title>Favorite locations</Title>
         <Row>
-            <LocationCard value='Luanda' />
-            <LocationCard value='Luanda' />
-            <LocationCard value='Luanda' />
-            <LocationCard value='Luanda' />
-            <LocationCard value='Luanda' />
-            <LocationCard value='Luanda' />
+          {
+            favoritiesLocations.map( (res, index) => <LocationCard key={index} value={res} onClick={()=> handleSearchFavorityLocation(res)} />)
+          }
+            
+            
             
         </Row>
     </Container>

@@ -1,11 +1,12 @@
 import { createContext, useEffect, useState } from "react";
-import { convertTime, handleSearch, handleSearchCoords } from "../services";
+import { convertTime, handleGetLocations, handleSaveLocation, handleSearch, handleSearchCoords } from "../services";
 
 export const AppContext = createContext({});
 
 export default function AppProvider({ children }) {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
+  const [favoritiesLocations, setFavoritiesLocations] = useState([]);
   const [coords, setCoords] = useState({});
 
   const [inputValue, setInputValue] = useState("");
@@ -42,7 +43,20 @@ export default function AppProvider({ children }) {
     }).then((res) => handleSetData(res));
   }
 
+  function saveLocation(){
+    handleSaveLocation(inputValue);
+    setFavoritiesLocations(handleGetLocations())
+  }
+  function handleSearchFavorityLocation(city){
+    setInputValue(city)
+    handleSearch(city).then((res) => handleSetData(res));
+
+  }
+
+
   useEffect(() => {
+
+    setFavoritiesLocations(handleGetLocations())
     navigator.geolocation.getCurrentPosition(
       (res) => {
         handleSearchCoords({
@@ -66,8 +80,11 @@ export default function AppProvider({ children }) {
         setInputValue,
         data,
         setData,
+        favoritiesLocations,
         handleData,
-        handleSearchMyLocation
+        handleSearchMyLocation,
+        handleSearchFavorityLocation,
+        saveLocation
       }}
     >
       {children}
